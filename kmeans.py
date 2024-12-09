@@ -10,21 +10,6 @@ class Cluster:
         return f"centroid = {self.centroid}; points = {self.points}"
 
 
-def generate_dummy_data():
-    return [
-        [1, 1, 1],  # 0
-        [4, 3, 5],  # 1
-        [5, 7, 6],  # 2
-        [8, 2, 0],  # 3
-        [1, 3, 9],  # 4
-        [0, 1, 2],  # 5
-        [9, 4, 7],  # 6
-        [8, 5, 5],  # 7
-        [6, 9, 4],  # 8
-        [6, 0, 7],  # 9
-    ]
-
-
 def calc_square_distance(point1, point2):
     feature_count = len(point1)
     distance = 0
@@ -109,12 +94,3 @@ def kmeans(X, initial_centroids, iteration):
         clusters = generate_cluster_from_centroids(new_centroids)
 
     return clusters
-
-
-# ================================================================================
-# Running The Models
-# ================================================================================
-X = generate_dummy_data()
-number_of_iteration = 10
-centroids_initial = [X[0], X[1]]
-kmeans(X, centroids_initial, number_of_iteration)
